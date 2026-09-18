@@ -79,7 +79,7 @@ You do not need TikTok credentials to test the agent! We provide an interactive 
 
 ### 1. Installation
 ```bash
-git clone https://github.com/your-username/walrus-social-agent.git
+git clone https://github.com/laymore/walrus-social-agent.git
 cd walrus-social-agent
 
 # Install Python requirements

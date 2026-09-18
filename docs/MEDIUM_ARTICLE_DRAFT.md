@@ -128,5 +128,5 @@ Our agent no longer forgets. It remembers who you are, what you care about, and 
 
 The code is fully open source. Clone it, run the CLI demo, and experience the future of AI memory for yourself:
 
-👉 **GitHub Repository:** `https://github.com/your-username/walrus-social-agent`  
+👉 **GitHub Repository:** `https://github.com/laymore/walrus-social-agent`  
 👉 **Walruscan Explorer:** [Inspect our Mainnet Blobs](https://walruscan.com/mainnet/blob/PEzXmHsOMC9vyL79Z5y245i80SJETg2x22T6wFZYMRE)
