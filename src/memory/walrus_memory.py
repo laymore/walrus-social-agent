@@ -53,79 +53,96 @@ class WalrusMemoryClient:
             except Exception as e:
                 logger.error(f"Error writing to local cache: {e}")
 
-    def recall_raw(self, query: str, limit: int = 3) -> Optional[str]:
-        """Queries Walrus Memory semantic vector index on Mainnet via MCP."""
-        logger.info(f"🌐 [Walrus Query] Initiating semantic recall for query: '{query}' (limit={limit})...")
-        try:
-            cmd = ["npx.cmd" if sys.platform == "win32" else "npx", "-y", "@mysten-incubation/memwal-mcp", "--namespace", self.namespace]
-            proc = subprocess.Popen(
-                cmd,
-                stdin=subprocess.PIPE,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                encoding="utf-8"
-            )
+    def recall_raw(self, query: str, limit: int = 3, timeout_sec: int = 6) -> Optional[str]:
+        """Queries Walrus Memory semantic vector index on Mainnet via MCP with strict timeout."""
+        logger.info(f"🌐 [Walrus Query] Initiating semantic recall for query: '{query}' (limit={limit}, timeout={timeout_sec}s)...")
+        result_box = [None]
 
-            def send(msg):
-                proc.stdin.write(json.dumps(msg) + "\n")
-                proc.stdin.flush()
+        def _worker():
+            proc = None
+            try:
+                cmd = ["npx.cmd" if sys.platform == "win32" else "npx", "-y", "@mysten-incubation/memwal-mcp", "--namespace", self.namespace]
+                proc = subprocess.Popen(
+                    cmd,
+                    stdin=subprocess.PIPE,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    encoding="utf-8"
+                )
 
-            def read_until_id(target_id: int, max_lines: int = 25):
-                for _ in range(max_lines):
-                    line = proc.stdout.readline()
-                    if not line:
-                        break
-                    line = line.strip()
-                    if not line:
-                        continue
+                def send(msg):
+                    proc.stdin.write(json.dumps(msg) + "\n")
+                    proc.stdin.flush()
+
+                def read_until_id(target_id: int, max_lines: int = 25):
+                    for _ in range(max_lines):
+                        line = proc.stdout.readline()
+                        if not line:
+                            break
+                        line = line.strip()
+                        if not line:
+                            continue
+                        try:
+                            data = json.loads(line)
+                            if data.get("id") == target_id:
+                                return data
+                        except Exception:
+                            pass
+                    return None
+
+                # 1. Initialize MCP Protocol
+                send({
+                    "jsonrpc": "2.0",
+                    "id": 1,
+                    "method": "initialize",
+                    "params": {
+                        "protocolVersion": "2024-11-05",
+                        "capabilities": {},
+                        "clientInfo": {"name": "Walrus-Social-Agent", "version": "1.0.0"}
+                    }
+                })
+                read_until_id(1)
+                send({"jsonrpc": "2.0", "method": "notifications/initialized"})
+
+                # 2. Execute memwal_recall Tool
+                send({
+                    "jsonrpc": "2.0",
+                    "id": 2,
+                    "method": "tools/call",
+                    "params": {
+                        "name": "memwal_recall",
+                        "arguments": {
+                            "query": query,
+                            "limit": limit,
+                            "namespace": self.namespace
+                        }
+                    }
+                })
+                res = read_until_id(2)
+                if res and "result" in res:
+                    result_box[0] = res.get("result", {}).get("content", [{}])[0].get("text", "")
+            except Exception as e:
+                logger.warning(f"⚠️ [Walrus Recall Worker Error] {e}")
+            finally:
+                if proc:
                     try:
-                        data = json.loads(line)
-                        if data.get("id") == target_id:
-                            return data
+                        proc.kill()
                     except Exception:
                         pass
-                return None
 
-            # 1. Initialize MCP Protocol
-            send({
-                "jsonrpc": "2.0",
-                "id": 1,
-                "method": "initialize",
-                "params": {
-                    "protocolVersion": "2024-11-05",
-                    "capabilities": {},
-                    "clientInfo": {"name": "Walrus-Social-Agent", "version": "1.0.0"}
-                }
-            })
-            read_until_id(1)
-            send({"jsonrpc": "2.0", "method": "notifications/initialized"})
+        th = threading.Thread(target=_worker, daemon=True)
+        th.start()
+        th.join(timeout=timeout_sec)
 
-            # 2. Execute memwal_recall Tool
-            send({
-                "jsonrpc": "2.0",
-                "id": 2,
-                "method": "tools/call",
-                "params": {
-                    "name": "memwal_recall",
-                    "arguments": {
-                        "query": query,
-                        "limit": limit,
-                        "namespace": self.namespace
-                    }
-                }
-            })
-            res = read_until_id(2)
-            proc.terminate()
-
-            if res and "result" in res:
-                content = res.get("result", {}).get("content", [{}])[0].get("text", "")
-                logger.info(f"✅ [Walrus Recall Success] Retrieved {len(content)} characters of semantic context.")
-                return content
+        if th.is_alive():
+            logger.warning(f"⏱️ [Walrus Timeout] Recall timed out after {timeout_sec}s, using local fallback.")
             return None
-        except Exception as e:
-            logger.warning(f"⚠️ [Walrus Recall Failed] Falling back to local cache: {e}")
-            return None
+
+        if result_box[0]:
+            logger.info(f"✅ [Walrus Recall Success] Retrieved {len(result_box[0])} characters of semantic context.")
+            return result_box[0]
+        return None
 
     def get_profile(self, author: str) -> Optional[CustomerProfile]:
         """
