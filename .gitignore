@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Environment and secrets
+.env
+*.local
+credentials.json
+tiktok_cookies.json
+*.pem
+*.key
+
+# Logs and runtime databases
+*.log
+local_cache.json
+temp/
+dist/
+build/

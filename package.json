@@ -1,0 +1,27 @@
+{
+  "name": "walrus-social-agent",
+  "version": "1.0.0",
+  "description": "Autonomous Multi-Channel AI Agent with Decentralized Long-Term Memory on Walrus Protocol",
+  "main": "index.js",
+  "scripts": {
+    "test:memwal": "npx @mysten-incubation/memwal-mcp --namespace huyenminh_social_crm",
+    "demo:cli": "python src/cli/interactive_demo.py"
+  },
+  "keywords": [
+    "walrus",
+    "walrus-memory",
+    "memwal",
+    "sui",
+    "ai-agent",
+    "social-media",
+    "long-term-memory",
+    "decentralized-storage"
+  ],
+  "author": "Huyen Minh AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@mysten-incubation/memwal": "^0.0.1",
+    "@mysten-incubation/memwal-mcp": "^0.0.13",
+    "@mysten/sui": "^1.21.0"
+  }
+}
