@@ -103,9 +103,26 @@ class SocialReplyAgent:
         return self._heuristic_metaphysics_response(author, comment, past_context)
 
     def _heuristic_metaphysics_response(self, author: str, comment: str, past_context: str) -> str:
-        """Fallback response generator with full memory awareness."""
+        """Fallback response generator with full memory awareness and context sensitivity."""
         comment_lower = comment.lower()
 
+        # 1. Casual / Rejoicing / Tarot comments: prioritize warmth, joy, and peace
+        if any(k in comment_lower for k in ["hào quang", "tâm điểm", "thon gọn", "vóc dáng", "outfit", "rực rỡ", "tỏa sáng", "xinh đẹp", "đẹp", "dáng"]):
+            return f"Hoan hỉ cùng bạn @{author}! Chúc bạn luôn rạng rỡ, tự tin tỏa sáng, tâm an vui và đón trọn nguồn năng lượng thịnh vượng, hạnh phúc viên mãn nhé! ✨🌸"
+
+        if any(k in comment_lower for k in ["a di đà phật", "a di da phat", "nam mô", "nam mo", "phật"]):
+            return f"A Di Đà Phật. Chúc bạn @{author} và gia đình luôn an yên, phước huệ tròn đầy, thân tâm an lạc và vạn sự cát tường! 🙏🪷"
+
+        if any(k in comment_lower for k in ["đón nhận", "don nhan", "biết ơn", "biet on", "hoan hỉ", "hoan hỷ", "hoan hi"]):
+            return f"Hoan hỉ đón nhận phước lành cùng bạn @{author}. Chúc bạn thân tâm an lạc, vạn sự hanh thông và sở cầu như ý! 🪷✨"
+
+        if any(k in comment_lower for k in ["claim", "xin vía", "xin via", "thu hút", "tiền về"]):
+            return f"Chúc bạn @{author} kết nối trọn vẹn với nguồn năng lượng tích cực này, sở cầu như ý, tài lộc dồi dào và vạn sự bình an! ✨"
+
+        if any(k in comment_lower for k in ["xứng đáng", "xưng đáng", "xung dang"]):
+            return f"Bạn @{author} hoàn toàn xứng đáng đón nhận những điều tốt đẹp, hạnh phúc và trù phú nhất! Cát tường an yên. ✨"
+
+        # 2. When user explicitly asks about their chart, future, or life situations
         # If we remember the user's birth details
         if "1995" in past_context or "ất hợi" in past_context.lower():
             if any(k in comment_lower for k in ["tình duyên", "tình cảm", "kết hôn", "yêu"]):
