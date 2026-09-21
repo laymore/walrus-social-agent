@@ -123,9 +123,9 @@ class SocialReplyAgent:
             return f"Bạn @{author} hoàn toàn xứng đáng đón nhận những điều tốt đẹp, hạnh phúc và trù phú nhất! Cát tường an yên. ✨"
 
         # 2. When user explicitly asks about their chart, future, or life situations
-        # If we remember the user's birth details
+        # Case study 1: 1995 Ất Hợi
         if "1995" in past_context or "ất hợi" in past_context.lower():
-            if any(k in comment_lower for k in ["tình duyên", "tình cảm", "kết hôn", "yêu"]):
+            if any(k in comment_lower for k in ["tình duyên", "tình cảm", "kết hôn", "yêu", "hạn hỷ", "hạn hỉ"]):
                 return (
                     f"Chào bạn @{author}, dựa trên lá số Bát Tự tuổi Ất Hợi 1995 (Sơn Đầu Hỏa) thầy đã xem cho bạn, "
                     "năm nay cung Phu Thê đang có chuyển biến tích cực. Bạn hãy giữ tâm thế rộng mở và kiên nhẫn nhé! ✨"
@@ -138,6 +138,23 @@ class SocialReplyAgent:
             return (
                 f"Chào bạn @{author}, thầy rất vui khi gặp lại bạn! "
                 "Chúc năng lượng tích cực của tuổi Ất Hợi 1995 luôn đồng hành giúp bạn an yên và đạt được sở nguyện."
+            )
+
+        # Case study 2: 1999 Kỷ Mão (Live user on TikTok @aihuyenminh)
+        if "1999" in past_context or "kỷ mão" in past_context.lower():
+            if any(k in comment_lower for k in ["tiền", "tài lộc", "công việc", "làm ăn", "kinh doanh"]):
+                return (
+                    f"Chào bạn @{author}, tiếp nối vận trình tuổi Kỷ Mão (1999 - Thành Đầu Thổ): "
+                    "Năm 2027 hưởng trọn Lộc trời ban! Dẫn chứng: Năm Đinh Mùi Lưu Lộc Tồn an tại Ngọ, tuổi bạn tọa Lộc hoặc nhị hợp Lộc, buôn may bán đắt và gia tăng tài sản vững chắc."
+                )
+            if any(k in comment_lower for k in ["tình duyên", "kết hôn", "cưới", "hạn hỷ", "hạn hỉ", "người yêu"]):
+                return (
+                    f"Chào bạn @{author}, tiếp nối vận trình tuổi Kỷ Mão (1999 - Thành Đầu Thổ): "
+                    "Năm 2026 đang tạo đà tìm hiểu; sang năm Đinh Mùi 2027 chính là đại hạn Hỷ sự rất rực rỡ để tính chuyện trăm năm! Dẫn chứng: Địa chi Mão cùng năm Mùi 2027 nhập Tam Hợp cục cát khánh (Hợi - Mão - Mùi), bộ đôi Đào Hoa và Hồng Loan đồng chiếu kích hoạt cung Phu Thê."
+                )
+            return (
+                f"Chào bạn @{author}, tiếp nối vận trình tuổi Kỷ Mão (1999 - Thành Đầu Thổ): "
+                "Bản mệnh vững vàng, hành Thổ. Chúc bạn luôn tâm an trí sáng và vạn sự hanh thông!"
             )
 
         # General welcoming memory
