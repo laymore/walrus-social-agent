@@ -39,11 +39,23 @@ On **September 16, 2026 (10:38 AM UTC+7)**, we integrated `@mysten-incubation/me
   > **Agent:** *(Queries Walrus Memory -> Recalls user is @quangnguyen0301, born 1995 At Hoi)*  
   > *"Thầy gửi link kết nối cho bạn 1995 nhé! Chúc năng lượng cát lành luôn đồng hành cùng bạn."*
 
-* **Subsequent Follow-ups (Sept 18, 2026):**
+* **Case Study #2: Multi-turn Prayer Engagement (Sept 18, 2026):**
   > **User `@nhamnhamnhoainhoai`:** Leaves prayer emoji `[Cầu nguyện][Cầu nguyện]` on another video.  
   > **Agent:** *(Queries Walrus Memory -> Recalls this is their second prayer interaction within 48 hours)*  
   > *"Tâm thành tất ứng! Thầy nhận thấy sự kiên trì cầu phúc của bạn, chúc vạn sự cát lành và an yên."*  
   > Verified Mainnet Blob: [`tr3FEEz0iIBRg5OpuFzwmB1V2I9knil8ihgo1IZon1Y`](https://walruscan.com/mainnet/blob/tr3FEEz0iIBRg5OpuFzwmB1V2I9knil8ihgo1IZon1Y)
+
+* **Case Study #3: Live Lifecycle & Intent Tracking — `@cuongid111` ("Tiểu Cường") (Sept 21, 2026 – Ongoing):**
+  * **Turn 1 (First Contact - Sept 21, 2026, 15:01 UTC+7):**
+    > **User `@cuongid111`:** *"nam, sn 1999 năm sau 2027 có hạn hỉ"*  
+    > **Context:** User provided gender (`nam`), birth year (`1999` - Kỷ Mão / Thành Đầu Thổ), asking whether 2027 (Đinh Mùi) brings marriage/love luck (`hạn hỉ`).  
+    > **Agent Response:**  
+    > *"Bạn nam tuổi Kỷ Mão (1999 - Thành Đầu Thổ): Năm 2026 đang tạo đà tìm hiểu; sang năm Đinh Mùi 2027 chính là đại hạn Hỷ sự rất rực rỡ để tính chuyện trăm năm! Dẫn chứng: Địa chi Mão cùng năm Mùi 2027 nhập Tam Hợp cục cát khánh (Hợi - Mão - Mùi), bộ đôi Đào Hoa và Hồng Loan đồng chiếu kích hoạt cung Phu Thê. ✨🌸"*  
+    > **Walrus State:** Profile serialized and stored in Walrus Memory (`huyenminh_social_crm`) with `birth_year: 1999`, `can_chi: Kỷ Mão`, `nap_am: Thành Đầu Thổ`, `primary_need: TÌNH DUYÊN / HẠN HỶ`.
+  * **Turn 2 (Live Tracking Underway):**
+    > As user `@cuongid111` returns on future video uploads, the agent will dynamically switch between:
+    > - **Mode A (Rejoicing):** If user leaves casual blessings ("Đón nhận ạ 🙏", "A Di Đà Phật"), agent sends warm wishes without unwanted destiny calculations.
+    > - **Mode B (Destiny Continuity):** If user asks about career/finances ("Thế còn công việc năm 2027 thì sao?"), agent automatically recalls 1999 from Walrus without asking them to restate their birth details!
 
 ---
 

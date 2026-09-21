@@ -109,6 +109,11 @@ On **September 16, 2026** (two days before Walrus Sessions 8 officially launched
 - On September 18, 2026, user `@nhamnhamnhoainhoai` left prayer emojis on our daily incense video. The agent recalled their previous interaction from 48 hours prior and delivered a personalized blessing acknowledging their spiritual consistency.
   - **Verified On-Chain Blob:** [`tr3FEEz0iIBRg5OpuFzwmB1V2I9knil8ihgo1IZon1Y`](https://walruscan.com/mainnet/blob/tr3FEEz0iIBRg5OpuFzwmB1V2I9knil8ihgo1IZon1Y)
 
+### Case #3: User `@cuongid111` ("Tiểu Cường" — 1999 Earth Rabbit / Kỷ Mão)
+- On September 21, 2026, user `@cuongid111` asked whether 2027 brings auspicious marriage luck (*"nam, sn 1999 năm sau 2027 có hạn hỉ"*).
+- The agent parsed their gender and birth year (`1999 - Thành Đầu Thổ`), delivered a personalized astrological synthesis (Tam Hợp cục Hợi - Mão - Mùi activating the Spouse Palace in 2027), and asynchronously committed their complete profile to Walrus Memory.
+- **The Ongoing Multi-Turn Journey:** In subsequent interactions, when `@cuongid111` returns, Walrus Memory allows the agent to distinguish between casual rejoicing (greeting them warmly without unsolicited fortune-telling) versus follow-up inquiries about career or family without ever asking them to restate their birth details.
+
 ---
 
 ## Real-World Lessons & Friction Points
