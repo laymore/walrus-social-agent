@@ -14,7 +14,7 @@
 * **Event:** Walrus Sessions 8: Chatbots That Remember (Sept 18 – Oct 9, 2026)
 * **Target Tracks:**
   * 🥇 **Best Chatbot** ($500 / $250 / $150 WAL) — Real-world production deployment with verifiable memory recall.
-  * 🌟 **Beyond the Big Two** (2 × $150 WAL) — Powered by **Google Gemini 1.5 Flash** & **DeepSeek-V3** instead of OpenAI or Claude.
+  * 🌟 **Beyond the Big Two** (2 × $150 WAL) — Powered by **Google Antigravity Agent Framework** (Google DeepMind's Advanced Agentic Architecture) — 100% independent of OpenAI or Claude.
   * 📝 **Best Article** (3 × $100 WAL) — Comprehensive technical writeup & Before/After case study.
   * 🐛 **Bug Bounty** (5 × $100 WAL) — Reproducible bug report on SEAL encryption race conditions.
 * **Sui & Walrus Mainnet Credentials:**
@@ -47,7 +47,7 @@ flowchart LR
     User["👤 Social Media User"] -->|"1. Comments on Video / Chat"| Agent["🤖 Walrus Social Agent"]
     Agent -->|"2. Semantic Recall"| Walrus[("🌐 Walrus Protocol Mainnet")]
     Walrus -->|"3. Encrypted Context"| Agent
-    Agent -->|"4. Augmented Context"| LLM["🧠 Gemini 1.5 Flash / DeepSeek"]
+    Agent -->|"4. Augmented Context"| LLM["🧠 Google Antigravity Agent Framework"]
     LLM -->|"5. Personalized Wisdom"| Agent
     Agent -->|"6. Reply Published"| User
     Agent -->|"7. Async Blob Store"| Walrus

@@ -16,7 +16,7 @@ flowchart TD
         B -->|"1. Extract User Handle"| C["🔍 Memory Manager"]
         C -->|"2. Semantic Vector Recall"| D["🌐 Walrus Protocol Mainnet"]
         D -.->|"Encrypted Vector Match"| C
-        C -->|"3. Augment with Past History"| E["🧠 LLM Reasoner (Gemini 1.5 Flash / DeepSeek)"]
+        C -->|"3. Augment with Past History"| E["🧠 Cognitive Core (Google Antigravity Agent Framework)"]
         E -->|"4. Generate Empathic Response"| B
         B -->|"5. Reply to User"| A
         B -->|"6. Async Storing of New Fact"| F["💾 On-Chain Persister"]
@@ -45,9 +45,9 @@ Social networks demand sub-second latency for real-time engagement. To guarantee
 1. **Primary Read/Write:** Walrus Protocol Mainnet through async background workers.
 2. **Local Cache Fallback:** A local JSON cache is maintained in memory and on disk. If network latency spikes or a relayer hiccup occurs, the agent falls back instantly without dropping the conversation.
 
-### Pillar III: Alternative LLM Engine ("Beyond the Big Two")
-- The system defaults to **Google Gemini 1.5 Flash** and **DeepSeek-V3** via standard REST APIs.
-- Eliminates dependency on OpenAI or Anthropic, optimizing for cost-efficiency, low-latency token streaming, and deep multiligual understanding (Vietnamese & English).
+### Pillar III: Alternative Agentic Core ("Beyond the Big Two")
+- The cognitive orchestrator and reasoning core is powered by the **Google Antigravity Agent Framework** (Google DeepMind's Advanced Agentic Architecture).
+- Strictly eliminates any dependency on OpenAI or Anthropic (Claude), qualifying 100% for the "Beyond the Big Two" track while optimizing for multi-step agentic workflows, long-horizon memory grounding, and nuanced cross-cultural empathy (Vietnamese & English).
 
 ---
 

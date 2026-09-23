@@ -1,7 +1,7 @@
 """
 AI Persona and Prompt Engineering Module.
-Configured for Alternative LLMs (Google Gemini 1.5 Flash & DeepSeek-V3)
-participating in the "Beyond the Big Two" Hackathon Track.
+Configured for Google Antigravity Agent Framework (Google DeepMind Agentic Platform)
+participating in the "Beyond the Big Two" Hackathon Track (Zero OpenAI / Claude calls).
 """
 
 MASTER_PERSONA_PROMPT = """

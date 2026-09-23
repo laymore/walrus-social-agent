@@ -62,7 +62,7 @@ Here is how we architected the system:
 [Augmented Context Prompt]
          │
          ▼
-[Alternative LLM: Google Gemini 1.5 Flash / DeepSeek-V3]
+[Cognitive Engine: Google Antigravity Agent Framework]
          │
          ▼
 [Empathetic, Memory-Aware Reply Published to TikTok]

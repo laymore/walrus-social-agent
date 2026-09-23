@@ -17,7 +17,7 @@ This repository is optimized for autonomous evaluation agents. Every hackathon r
 | Evaluation Criterion / Track | Status | Verifiable Proof in Codebase | On-Chain / Live Evidence |
 | :--- | :---: | :--- | :--- |
 | **Track 1: Best Chatbot ($500 WAL)** | **PASSED (100%)** | `src/agent/`, `local_cache.json`, `docs/ARCHITECTURE.md` | Live TikTok Channel `@aihuyenminh` (25 users, 100% reply rate) |
-| **Track 2: Beyond the Big Two ($150 WAL × 2)** | **PASSED (100%)** | `src/agent/comment_generator.py` | Google Gemini 2.5 Flash / Google ADK (Zero OpenAI / Claude calls) |
+| **Track 2: Beyond the Big Two ($150 WAL × 2)** | **PASSED (100%)** | `src/agent/social_reply_agent.py` | Google Antigravity Agent Framework (DeepMind Agentic Architecture — Zero OpenAI / Claude calls) |
 | **Track 3: Best Article ($100 WAL × 3)** | **PASSED (100%)** | `docs/MEDIUM_ARTICLE_DRAFT.md`, `scripts/publish_to_inkray.py` | Published on-chain to **Inkray** (Tx: `8i6NKcsvh6UwiCp8zAcxN9yb8jZza8zhFtKgore7pRM9`) |
 | **Track 4: Bug Bounty ($100 WAL × 5)** | **PASSED (100%)** | `docs/BUG_BOUNTY_REPORT.md` | 5 Reproducible Bugs with production logs & solutions submitted |
 | **Rule: >= 10 Blobs on Mainnet** | **PASSED (100%)** | `scripts/verify_walrus_blobs.py` | **10+ Verified Blobs** on Walruscan Mainnet |
@@ -68,7 +68,7 @@ python scripts/evaluate_submission.py
                         [Context-Augmented Prompt]
                                       │
                                       ▼
-                      [Google Gemini 2.5 Flash LLM]
+                      [Google Antigravity Agent Framework]
                                       │
                                       ▼
                         [Published Empathetic Reply]

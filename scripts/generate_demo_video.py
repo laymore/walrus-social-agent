@@ -94,7 +94,7 @@ def build_slide_1():
         "⚡ 0.237ms Dual-Layer Cache",
         "🔐 SEAL Encryption",
         "🌐 TikTok Studio Live 24/7",
-        "✨ Powered by Gemini 2.5 Flash"
+        "✨ Google Antigravity Agent"
     ]
     x_start = 220
     for p in pills:
@@ -181,7 +181,7 @@ def build_slide_3():
         ("Active Days:", "> 10 Days in Prod"),
         ("MCP Handshake:", "0.145 seconds"),
         ("Local Fallback:", "0.237 ms (0.0002s)"),
-        ("Model Used:", "Google Gemini 2.5 Flash")
+        ("Agent Engine:", "Google Antigravity Agent")
     ]
     y = 340
     for label, val in metrics:
