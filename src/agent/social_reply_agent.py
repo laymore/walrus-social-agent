@@ -82,13 +82,21 @@ class SocialReplyAgent:
         """Generates response using Gemini API or rule-based fallback."""
         prompt = build_agent_prompt(author, comment, past_context)
 
-        # 1. Attempt Gemini 1.5 Flash (Beyond the Big Two)
+        # 1. Attempt Google Gemini 2.5 Flash (Beyond the Big Two Track - High Reasoning)
         if self.gemini_key:
             try:
                 import requests
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.gemini_key}"
-                payload = {"contents": [{"parts": [{"text": prompt}]}]}
-                res = requests.post(url, json=payload, timeout=10)
+                # Upgraded to Gemini 2.5 Flash with High Reasoning
+                model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={self.gemini_key}"
+                payload = {
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.7,
+                        "topP": 0.95
+                    }
+                }
+                res = requests.post(url, json=payload, timeout=12)
                 if res.status_code == 200:
                     data = res.json()
                     candidates = data.get("candidates", [])
