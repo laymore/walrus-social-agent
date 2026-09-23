@@ -23,6 +23,7 @@
   * **Memory Namespace:** `huyenminh_social_crm`
   * **Verified Mainnet Blobs:** **10+ Blobs** *(See [Mainnet Blobs](#-verified-on-chain-walrus-blobs-proof-of-real-use))*
 * **Live Social Channel:** TikTok [`@aihuyenminh`](https://www.tiktok.com/@aihuyenminh) (Autonomous 24/7 comment counselor)
+* **Published Article on Inkray (Decentralized Web3):** [Read on Inkray](https://inkray.xyz/article?id=chatbots-that-remember-how-we-built-an-autonomous-social-ai-agent-powered-by-walrus-protocol-98cf55c49e3a4c68) *(Tx: `8i6NKcsvh6UwiCp8zAcxN9yb8jZza8zhFtKgore7pRM9`)*
 
 ---
 
